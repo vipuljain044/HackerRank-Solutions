@@ -1,0 +1,23 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main(){
+    string time,last;
+    cin >> time;
+    string subtime=time.substr(2,6);
+    int hour=((int)(time[0])-48)*10+((int)(time[1])-48);
+    if(time[8]=='P'&&hour<12||time[8]=='A'&&hour>=12){
+        hour+=12;
+        
+    }
+    hour=hour%24;
+    if(hour>9)
+        cout<<hour<<subtime;
+    else
+        cout<<"0"<<hour<<subtime;
+    return 0;
+}

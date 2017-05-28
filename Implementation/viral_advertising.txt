@@ -1,0 +1,20 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int a=2,b=2;
+    int input;
+    cin>>input;
+    for(int i=0;i<input-1;i++)
+    {
+	   b=(int)(b*1.5);
+	   a+=b;
+    }
+    cout<<a;  
+    return 0;
+}

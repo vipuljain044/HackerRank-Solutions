@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include<iostream>
+#include <assert.h>
+using namespace std;
+
+void insertionSort ( int length,int a[]){
+	 int j, temp;
+	 for (int i = 1; i < length; i++){
+        for (j = i; j >= 1; j--){
+            if (a[j] < a[j-1]){
+                temp = a[j];
+                a[j] = a[j-1];
+                a[j-1] = temp;
+            }
+            else
+                break;
+        }
+         
+    } 
+    for(int l = 0; l < length; l++){
+            cout<<a[l]<<" ";
+        }
+        cout<<endl;
+}
+int main(void) {
+
+    int N;
+    cin>>N;
+    int arr[1000], i;
+    for(i = 0; i < N; i++) {
+        cin>>arr[i];
+    }
+
+    insertionSort(N, arr);
+
+    return 0;
+}

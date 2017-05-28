@@ -1,0 +1,28 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    string s;
+    int flag=0;
+    getline(cin,s);
+    for(int i=65;i<=90;i++){
+        flag=0;
+        for(int j=0;j<s.length();j++){
+            if((int)(toupper(s[j]))==i){
+                flag=1;
+                break;
+            }  
+        }
+        if(flag==0){
+                cout<<"not pangram";
+                return 0;
+            }
+    }
+    cout<<"pangram";
+    return 0;
+}

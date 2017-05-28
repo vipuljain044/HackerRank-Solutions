@@ -1,0 +1,38 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int insertionSort ( int length,int a[]){
+	 int j, temp;
+    int count=0;
+	 for (int i = 1; i < length; i++){
+        for (j = i; j >= 1; j--){
+            if (a[j] < a[j-1]){
+                count++;
+                temp = a[j];
+                a[j] = a[j-1];
+                a[j-1] = temp;
+            }
+            else
+                break;
+        }
+        
+    }   
+    return count;
+}
+int main() {
+    int _ar_size;
+    cin >> _ar_size;
+    //scanf("%d", &_ar_size);
+    int _ar[_ar_size], _ar_i;
+    for(_ar_i = 0; _ar_i < _ar_size; _ar_i++) { 
+        cin >> _ar[_ar_i];
+        //scanf("%d", &_ar[_ar_i]); 
+    }
+
+   cout<<insertionSort(_ar_size, _ar);
+    return 0;
+}

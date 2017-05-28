@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> grades(n);
+    for(int grades_i = 0; grades_i < n; grades_i++){
+       cin >> grades[grades_i];
+        if(grades[grades_i]>=38){
+            if(grades[grades_i]%5>2){
+                grades[grades_i]=grades[grades_i]-grades[grades_i]%5+5;
+            }
+        }
+        cout<<grades[grades_i]<<endl;
+    }
+    return 0;
+}

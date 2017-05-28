@@ -1,0 +1,47 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int factorN(int x,int n[10],int l){
+    int flag=0;
+    for(int i=0;i<l;i++){
+        if(x%n[i]!=0){
+            return 0;
+        }
+    }
+    return 1;
+}
+int factorM(int x,int n[10],int l){
+    int flag=0;
+    for(int i=0;i<l;i++){
+        if(n[i]%x!=0){
+            return 0;
+        }
+    }
+    return 1;
+}
+int main() {
+    int n,m;
+    int _n[10],_m[10];
+    int min=100,max=0;
+    int count=0;
+    cin>>n>>m;
+    for(int i=0;i<n;i++){
+        cin>>_n[i];
+        if(_n[i]<min)
+            min=_n[i];
+    }
+    for(int i=0;i<m;i++){
+        cin>>_m[i];
+        if(_m[i]>max)
+            max=_m[i];
+    }
+    for(int i=min;i<=max;i++){
+        if(factorN(i,_n,n)==1&&factorM(i,_m,m)==1)
+            count++;
+    }
+    cout<<count;
+    return 0;
+}

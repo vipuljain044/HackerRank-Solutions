@@ -1,0 +1,49 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+string simplify(string s){
+    string t="";
+    int flag=0;
+    for(int i=0;i<s.length();i++){
+        flag=0;
+        for(int j=0;j<t.length();j++){
+            if(s[i]==t[j]){
+                flag=1;
+                break;
+            }
+        }
+        if(flag==0){
+            t+=s[i];
+        }
+      
+    }
+    return t;
+}
+string compare(string r,string s){
+    string t="";
+    for(int j=0;j<s.length();j++){
+        for(int k=0;k<r.length();k++){
+            if(r[k]==s[j]){
+                t+=s[j];
+                break;
+            }      
+        }
+    }
+    return t;
+}
+int main() {
+    int n,flag=0;
+    string r,s="",t;
+    cin>>n;
+    cin>>r;
+    s=simplify(r);
+    for(int i=0;i<n-1;i++){
+        cin>>t;
+        s=compare(t,s);
+    }
+    cout<<s.length();
+    return 0;
+}

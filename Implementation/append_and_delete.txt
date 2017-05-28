@@ -1,0 +1,63 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    string s,t;
+    int n;
+    cin>>s>>t>>n;
+    int m;
+    if(s.length()<t.length())
+        m=s.length();
+    else
+        m=t.length();
+    int count=0;
+    for(int i=0;i<m;i++){
+        if(s[i]==t[i])
+            count++;
+        else 
+            break;
+    }
+    
+    if(s.length()==t.length()&&count==s.length()){
+         if (n>2*count)
+            cout<<"Yes";
+        else if(n%2==0)
+            cout<<"Yes";
+        else
+            cout<<"No";
+    }
+    else if(count==m){
+        if(s.length()<t.length()){
+            m=t.length()-s.length();
+        }
+        else
+            m=s.length()-t.length();
+        
+        if(((n-m)%2==0)||n>s.length()+t.length()){
+            cout<<"Yes";
+        }
+        else{
+            cout<<"No";
+        }
+    }
+    else if(count==0){
+        count=s.length()+t.length();
+        if (n>=count)
+            cout<<"Yes";
+        else
+            cout<<"No";
+    }
+    else{
+        count=s.length()+t.length()-2*count;
+        if (n==count)
+            cout<<"Yes";
+        else
+            cout<<"No";
+    }
+    return 0;
+}

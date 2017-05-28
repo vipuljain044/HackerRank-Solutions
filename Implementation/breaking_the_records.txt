@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    int most;
+    int least;
+    int mcounter=0;
+    int lcounter=0;
+    cin >> n;
+    vector<int> s(n);
+    for(int s_i = 0; s_i < n; s_i++){
+       cin >> s[s_i];
+        if(s_i==0){
+            most= s[s_i];
+            least= s[s_i];
+        }
+        if(s_i>0){
+            if(most< s[s_i]){
+                most=s[s_i];
+                mcounter++;   
+            }
+            else if(least> s[s_i]){
+                least=s[s_i];
+                lcounter++;   
+            }
+            
+        }
+    }
+    cout<<mcounter<<" "<<lcounter;
+    return 0;
+}

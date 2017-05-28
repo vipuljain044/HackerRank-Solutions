@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+int main() {
+    int n;
+    cin >> n;
+    int p;
+    cin >> p;
+    if(p<=n/2)
+        cout<<p/2;
+    else
+        cout<<(n-p)/2;
+    
+    return 0;
+}

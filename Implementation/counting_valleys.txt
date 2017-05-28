@@ -1,0 +1,26 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    int n;
+    cin>>n;
+    string track;
+    cin>>track;
+    int valley=0;
+    int steps=0;
+    for(int i=0;i<n;i++){
+        if(steps==-1&&track[i]=='U')
+            valley++;
+        if(track[i]=='U')
+            steps++;
+        else
+            steps--;
+    }
+    cout<<valley;
+    return 0;
+}

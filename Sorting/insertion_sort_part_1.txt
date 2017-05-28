@@ -1,0 +1,63 @@
+#include <map>
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <bitset>
+#include <cstdio>
+#include <vector>
+#include <cstdlib>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+void insertionSort(int arr[], int n)
+ {
+  for (int i = 0; i < n; ++i)
+    for (int j = 0; j < n - i - 1; ++j)
+      if (arr[j] > arr[j + 1])
+     {
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+  }		
+ 
+int main(void) {
+    int n,temp,flag=0;;
+    int arr[1000];
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int x=arr[n-1];
+    insertionSort(arr,n-1);
+    for(int i=n-2;i>=0&&flag==0;i--){
+        if(arr[i]>x){
+            arr[i+1]=arr[i];
+            insertionSort(arr,n);
+        }
+        else if(arr[i]<x) {
+            arr[i+1]=x;
+            insertionSort(arr,n);
+            flag=1;
+        }
+        for(int j=0;j<n;j++){
+            cout<<arr[j]<<" ";
+        }
+        if(arr[0]>x&&i==0){
+            arr[0]=x;
+            cout<<endl;
+            for(int j=0;j<n;j++){
+            cout<<arr[j]<<" ";
+        }
+        }
+        cout<<endl;
+    }
+   
+    return 0;
+}
